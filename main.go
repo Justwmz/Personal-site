@@ -13,7 +13,7 @@ import (
 
 func main() {
 	database.InitDatabase()
-	auth.InitiAuth()
+	auth.InitAuth()
 
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
@@ -29,6 +29,10 @@ func main() {
 			r.Use(jwtauth.Verifier(auth.TokenAuth))
 			r.Use(jwtauth.Authenticator)
 			r.Get("/", handlers.IndexAdminPage)
+
+			r.Post("/cert", handlers.AddCert)
+			r.Post("/exp", handlers.AddExperience)
+			r.Post("/edu", handlers.AddEducation)
 		})
 	})
 

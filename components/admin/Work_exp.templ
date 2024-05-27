@@ -1,0 +1,80 @@
+package admin
+
+import (
+	"github.com/Justwmz/personal-site/models"
+	"fmt"
+)
+
+templ WorkExperience(workExp []models.Experience) {
+	<div class="row mt-4" id="exp">
+		<div class="col-2">
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#experienceModal">
+				Add Work Expirience
+			</button>
+			<!-- Modal -->
+			<div class="modal fade" id="experienceModal" tabindex="-1" aria-labelledby="experienceModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5" id="experienceModalLabel">Add Work Expirience</h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<form method="POST" hx-post="/admin/exp" hx-swap="outerHTML" hx-target="#exp">
+								<div class="mb-3">
+									<label for="positionInput" class="form-label">Position</label>
+									<input type="text" class="form-control" id="positionInput" name="position"/>
+								</div>
+								<div class="mb-3">
+									<label for="companyInput" class="form-label">Company</label>
+									<input type="text" class="form-control" id="companyInput" name="company"/>
+								</div>
+								<div class="mb-3">
+									<label for="summaryInput" class="form-label">Summary</label>
+									<input type="text" class="form-control" id="summaryInput" name="summary"/>
+								</div>
+								<div class="mb-3">
+									<label for="fromInput" class="form-label">From</label>
+									<input type="text" class="form-control" id="fromInput" name="from"/>
+								</div>
+								<div class="mb-3">
+									<label for="toInput" class="form-label">To</label>
+									<input type="text" class="form-control" id="toInput" name="to"/>
+								</div>
+								<button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<table class="table caption-top">
+				<caption>Work Expirience</caption>
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Position</th>
+						<th scope="col">Company</th>
+						<th scope="col">Summary</th>
+						<th scope="col">From</th>
+						<th scope="col">To</th>
+					</tr>
+				</thead>
+				<tbody>
+					for _, item := range workExp {
+						<tr>
+							<th scope="row">{ fmt.Sprintf("%d",item.ID) }</th>
+							<td>{ item.Position }</td>
+							<td>{ item.Company }</td>
+							<td>{ item.Summary }</td>
+							<td>{ item.From.Format("2006-01-02") }</td>
+							<td>{ item.To.Format("2006-01-02") }</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+}

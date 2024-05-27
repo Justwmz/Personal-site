@@ -1,0 +1,86 @@
+package admin
+
+import (
+	"github.com/Justwmz/personal-site/models"
+	"fmt"
+)
+
+templ Certification(cert []models.Certifications) {
+	<div class="row mt-4" id="certs">
+		<div class="col-2">
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#certificateModal">
+				Add Certification
+			</button>
+			<!-- Modal -->
+			<div class="modal fade" id="certificateModal" tabindex="-1" aria-labelledby="certificateModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5" id="certificateModalLabel">Add Certification</h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<form method="POST" hx-post="/admin/cert" hx-swap="outerHTML" hx-target="#certs">
+								<div class="mb-3">
+									<label for="nameInput" class="form-label">Name</label>
+									<input type="text" class="form-control" id="nameImput" name="name"/>
+								</div>
+								<div class="mb-3">
+									<label for="providerInput" class="form-label">Provider</label>
+									<input type="text" class="form-control" id="providerInput" name="provider"/>
+								</div>
+								<div class="mb-3">
+									<label for="credentialIDInput" class="form-label">CredentialID</label>
+									<input type="text" class="form-control" id="credentialIDInput" name="credentialID"/>
+								</div>
+								<div class="mb-3">
+									<label for="linkInput" class="form-label">Link</label>
+									<input type="text" class="form-control" id="linkInput" name="link"/>
+								</div>
+								<div class="mb-3">
+									<label for="issuesInput" class="form-label">Issued</label>
+									<input type="text" class="form-control" id="issuesInput" name="issued"/>
+								</div>
+								<div class="mb-3">
+									<label for="expiredInput" class="form-label">Expired</label>
+									<input type="text" class="form-control" id="expiredInput" name="expired"/>
+								</div>
+								<button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<table class="table caption-top">
+				<caption>Certifications</caption>
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Name</th>
+						<th scope="col">Provider</th>
+						<th scope="col">CredentialID</th>
+						<th scope="col">Link</th>
+						<th scope="col">Issued</th>
+						<th scope="col">Expired</th>
+					</tr>
+				</thead>
+				<tbody>
+					for _, item := range cert {
+						<tr>
+							<th scope="row">{ fmt.Sprintf("%d",item.ID) }</th>
+							<td>{ item.Name }</td>
+							<td>{ item.Provider }</td>
+							<td>{ item.CredentialID }</td>
+							<td>{ item.Link }</td>
+							<td>{ item.Issued.Format("2006-01-02") }</td>
+							<td>{ item.Expired.Format("2006-01-02") }</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+}

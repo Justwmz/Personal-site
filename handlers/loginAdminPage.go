@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/Justwmz/personal-site/auth"
@@ -24,7 +23,6 @@ func LoginUser(w http.ResponseWriter, r *http.Request) {
 
 	if result.RowsAffected > 0 {
 		_, tokenString, _ := auth.TokenAuth.Encode(map[string]interface{}{"user_id": 1})
-		fmt.Printf("DEBUG: a sample jwt is %s\n\n", tokenString)
 
 		cookie := &http.Cookie{
 			Name:     "jwt",
