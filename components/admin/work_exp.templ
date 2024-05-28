@@ -65,14 +65,14 @@ templ WorkExperience(workExp []models.Experience) {
 				</thead>
 				<tbody>
 					for _, item := range workExp {
-						<tr>
+						<tr id={ fmt.Sprintf("exp-%d", item.ID) }>
 							<th scope="row">{ fmt.Sprintf("%d",item.ID) }</th>
 							<td>{ item.Position }</td>
 							<td>{ item.Company }</td>
 							<td>{ item.Summary }</td>
 							<td>{ item.From.Format("2006-01-02") }</td>
 							<td>{ item.To.Format("2006-01-02") }</td>
-							<td><button class="btn btn-danger" hx-delete={ fmt.Sprintf("/admin/exp/%d", item.ID) } hx-swap="outerHTML" hx-target="#exp">Delete</button></td>
+							<td><button class="btn btn-danger" hx-delete={ fmt.Sprintf("/admin/exp/%d", item.ID) } hx-target={ fmt.Sprintf("#exp-%d", item.ID) }>Delete</button></td>
 						</tr>
 					}
 				</tbody>

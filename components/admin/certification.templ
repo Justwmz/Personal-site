@@ -70,7 +70,7 @@ templ Certification(cert []models.Certifications) {
 				</thead>
 				<tbody>
 					for _, item := range cert {
-						<tr>
+						<tr id={ fmt.Sprintf("cert-%d", item.ID) }>
 							<th scope="row">{ fmt.Sprintf("%d",item.ID) }</th>
 							<td>{ item.Name }</td>
 							<td>{ item.Provider }</td>
@@ -78,7 +78,7 @@ templ Certification(cert []models.Certifications) {
 							<td>{ item.Link }</td>
 							<td>{ item.Issued.Format("2006-01-02") }</td>
 							<td>{ item.Expired.Format("2006-01-02") }</td>
-							<td><button class="btn btn-danger" hx-delete={ fmt.Sprintf("/admin/cert/%d", item.ID) } hx-swap="outerHTML" hx-target="#certs">Delete</button></td>
+							<td><button class="btn btn-danger" hx-delete={ fmt.Sprintf("/admin/cert/%d", item.ID) } hx-target={ fmt.Sprintf("#cert-%d", item.ID) }>Delete</button></td>
 						</tr>
 					}
 				</tbody>

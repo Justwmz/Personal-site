@@ -65,14 +65,14 @@ templ Education(edu []models.Education) {
 				</thead>
 				<tbody>
 					for _, item := range edu {
-						<tr>
+						<tr id={ fmt.Sprintf("edu-%d", item.ID) }>
 							<th scope="row">{ fmt.Sprintf("%d",item.ID) }</th>
 							<td>{ item.UniversityName }</td>
 							<td>{ item.Degree }</td>
 							<td>{ item.Field }</td>
 							<td>{ item.From.Format("2006-01-02") }</td>
 							<td>{ item.To.Format("2006-01-02") }</td>
-							<td><button class="btn btn-danger" hx-delete={ fmt.Sprintf("/admin/edu/%d", item.ID) } hx-swap="outerHTML" hx-target="#edu">Delete</button></td>
+							<td><button class="btn btn-danger" hx-delete={ fmt.Sprintf("/admin/edu/%d", item.ID) } hx-target={ fmt.Sprintf("#edu-%d", item.ID) }>Delete</button></td>
 						</tr>
 					}
 				</tbody>

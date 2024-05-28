@@ -113,11 +113,7 @@ func DeleteCert(w http.ResponseWriter, r *http.Request) {
 
 	database.DB.Where("id = ?", id).Delete(&cert)
 
-	certs := []models.Certifications{}
-
-	database.DB.Find(&certs)
-
-	Render(w, r, admin.Certification(certs))
+	w.WriteHeader(http.StatusOK)
 }
 
 func DeleteExperience(w http.ResponseWriter, r *http.Request) {
@@ -127,11 +123,7 @@ func DeleteExperience(w http.ResponseWriter, r *http.Request) {
 
 	database.DB.Where("id = ?", id).Delete(&exp)
 
-	exps := []models.Experience{}
-
-	database.DB.Find(&exps)
-
-	Render(w, r, admin.WorkExperience(exps))
+	w.WriteHeader(http.StatusOK)
 }
 
 func DeleteEducation(w http.ResponseWriter, r *http.Request) {
@@ -141,9 +133,5 @@ func DeleteEducation(w http.ResponseWriter, r *http.Request) {
 
 	database.DB.Where("id = ?", id).Delete(&education)
 
-	educations := []models.Education{}
-
-	database.DB.Find(&educations)
-
-	Render(w, r, admin.Education(educations))
+	w.WriteHeader(http.StatusOK)
 }
