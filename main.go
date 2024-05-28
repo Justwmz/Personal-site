@@ -31,8 +31,13 @@ func main() {
 			r.Get("/", handlers.IndexAdminPage)
 
 			r.Post("/cert", handlers.AddCert)
+			r.Delete("/cert/{id}", handlers.DeleteCert)
+
 			r.Post("/exp", handlers.AddExperience)
+			r.Delete("/exp/{id}", handlers.DeleteExperience)
+
 			r.Post("/edu", handlers.AddEducation)
+			r.Delete("/edu/{id}", handlers.DeleteEducation)
 		})
 	})
 

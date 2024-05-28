@@ -65,6 +65,7 @@ templ Certification(cert []models.Certifications) {
 						<th scope="col">Link</th>
 						<th scope="col">Issued</th>
 						<th scope="col">Expired</th>
+						<th scope="col">Action</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -77,6 +78,7 @@ templ Certification(cert []models.Certifications) {
 							<td>{ item.Link }</td>
 							<td>{ item.Issued.Format("2006-01-02") }</td>
 							<td>{ item.Expired.Format("2006-01-02") }</td>
+							<td><button class="btn btn-danger" hx-delete={ fmt.Sprintf("/admin/cert/%d", item.ID) } hx-swap="outerHTML" hx-target="#certs">Delete</button></td>
 						</tr>
 					}
 				</tbody>

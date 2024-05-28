@@ -7,6 +7,7 @@ import (
 	"github.com/Justwmz/personal-site/components/admin"
 	"github.com/Justwmz/personal-site/database"
 	"github.com/Justwmz/personal-site/models"
+	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/jwtauth"
 )
 
@@ -96,6 +97,49 @@ func AddEducation(w http.ResponseWriter, r *http.Request) {
 	}
 
 	database.DB.Create(&education)
+
+	educations := []models.Education{}
+
+	database.DB.Find(&educations)
+
+	Render(w, r, admin.Education(educations))
+}
+
+func DeleteCert(w http.ResponseWriter, r *http.Request) {
+
+	id := chi.URLParam(r, "id")
+
+	cert := models.Certifications{}
+
+	database.DB.Where("id = ?", id).Delete(&cert)
+
+	certs := []models.Certifications{}
+
+	database.DB.Find(&certs)
+
+	Render(w, r, admin.Certification(certs))
+}
+
+func DeleteExperience(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+
+	exp := models.Experience{}
+
+	database.DB.Where("id = ?", id).Delete(&exp)
+
+	exps := []models.Experience{}
+
+	database.DB.Find(&exps)
+
+	Render(w, r, admin.WorkExperience(exps))
+}
+
+func DeleteEducation(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+
+	education := models.Education{}
+
+	database.DB.Where("id = ?", id).Delete(&education)
 
 	educations := []models.Education{}
 

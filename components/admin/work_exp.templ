@@ -60,6 +60,7 @@ templ WorkExperience(workExp []models.Experience) {
 						<th scope="col">Summary</th>
 						<th scope="col">From</th>
 						<th scope="col">To</th>
+						<th scope="col">Action</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -71,6 +72,7 @@ templ WorkExperience(workExp []models.Experience) {
 							<td>{ item.Summary }</td>
 							<td>{ item.From.Format("2006-01-02") }</td>
 							<td>{ item.To.Format("2006-01-02") }</td>
+							<td><button class="btn btn-danger" hx-delete={ fmt.Sprintf("/admin/exp/%d", item.ID) } hx-swap="outerHTML" hx-target="#exp">Delete</button></td>
 						</tr>
 					}
 				</tbody>

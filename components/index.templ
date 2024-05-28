@@ -53,47 +53,6 @@ templ Index(cert []models.Certifications, edu []models.Education, exp []models.E
 							<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 								<div class="accordion-body">
 									@certification.CertBody(cert)
-									<div class="row">
-										<div class="col-sm-2">
-											<img src="./static/img/prg_hub.jfif" class="img-thumbnail" alt="..."/>
-										</div>
-										<div class="col">
-											<dl>
-												<dt>Python 3 certification course</dt>
-												<dd>Programming hub</dd>
-												<dd>Issued Nov 2021</dd>
-												<dd>Credential ID: 1637000755078</dd>
-												<dd><a class="btn btn-primary" href="https://storage.googleapis.com/programminghub/certificate%2F1637000755078.pdf" target="_blank" rel="noopener noreferrer">Show credential</a></dd>
-											</dl>
-										</div>
-									</div>
-									<hr/>
-									<div class="row">
-										<div class="col-sm-2">
-											<img src="./static/img/udemy.jfif" class="img-thumbnail" alt="..."/>
-										</div>
-										<div class="col">
-											<dl>
-												<dt>Go: The Complete Developer's Guide (Golang)</dt>
-												<dd>Udemy</dd>
-												<dd>Issued Dec 2022 · No Expiration Date</dd>
-												<dd>Credential ID: UC-26d52cba-850f-4858-bcfd-278f12316e64</dd>
-												<dd><a class="btn btn-primary" href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-26d52cba-850f-4858-bcfd-278f12316e64.pdf" target="_blank" rel="noopener noreferrer">Show credential</a></dd>
-											</dl>
-										</div>
-									</div>
-									<hr/>
-									<div class="row">
-										<div class="col-sm-2">
-											<img src="./static/img/cisco.png" class="img-thumbnail" alt="..."/>
-										</div>
-										<div class="col">
-											<dl>
-												<dt>CISCO CCNA</dt>
-												<dd>Kyiv College of Communications</dd>
-											</dl>
-										</div>
-									</div>
 								</div>
 							</div>
 						</div>
@@ -106,98 +65,6 @@ templ Index(cert []models.Certifications, edu []models.Education, exp []models.E
 							<div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 								<div class="accordion-body">
 									@expirience.ExpBody(exp)
-									<dl>
-										<dt>DevOps Engineer</dt>
-										<dd>Luxoft | Nov 2021 - Present</dd>
-									</dl>
-									<p>
-										Performing the deployment of applications using Puppet or
-										Azure DevOps Pipelines. Creating new pipelines to reduce a
-										manual any manual activity from the Production team.
-										Improving overall stability of the production environment
-										via creating automation for it and implementing custom
-										monitoring metrics in AppDynamics. Create and maintain
-										AKS clusters. Wrote the automation scripts on Python, Bash,
-										and Powershell.
-									</p>
-									<dl>
-										<dt>Technical Support Engineer/Integration Engineer</dt>
-										<dd>IConduct - Cloud Integration Platform | Dec 2020 - Oct 2021</dd>
-									</dl>
-									<p>
-										Delivered exemplary technical support to +10 customers
-										daily while assisting with implementation and
-										troubleshooting of IPaas software, via chat and email.
-										Implemented client projects via our IPaas solution. Trained
-										several junior Technical support agents in troubleshooting
-										techniques, and solving client problems. Worked on the
-										initial analysis of problems with the application and then
-										passed them to the Developers.
-									</p>
-									<dl>
-										<dt>Unix System Administrator</dt>
-										<dd>Ukrtelecom | Oct 2020 - Dec 2020</dd>
-									</dl>
-									<p>
-										Responsible for the Linux/Windows server infrastructure.
-										Troubleshoot and maintain the services like DNS, and
-										hypervisors like VMWare and XenServer. Configured the
-										monitoring for the new and existing servers using Zabbix.
-									</p>
-									<dl>
-										<dt>Technical Support Specialist</dt>
-										<dd>LIGA:ZAKON | Aug 2017 - Oct 2020</dd>
-									</dl>
-									<p>
-										Delivered exemplary technical support to +10 customers
-										daily while assisting with installation, configuration, and
-										troubleshooting of Windows-operating network software,
-										via phone and via email.
-										Performed +100 visits to customers for installation and
-										configuration of software. Administrated wiki-related
-										knowledge base of typical software errors. Trained several
-										junior Technical support agents in troubleshooting
-										techniques, and solving client problems.
-									</p>
-									<dl>
-										<dt>Chief Information Technology Specialist</dt>
-										<dd>Slavutich city court of Kiev region | Nov 2015 - Feb 2017</dd>
-									</dl>
-									<p>
-										Was responsible for the Windows server infrastructure.
-										Troubleshoot and maintain the services like DNS, DHCP,
-										PostgreSQL, and internal court system services. Install,
-										maintain, and configure a video conference system based on
-										the TrueConf. Handled the produce digital signatures for the
-										court employees. Configure the cisco network devices such
-										as ASA and Cisco Catalyst.
-									</p>
-									<dl>
-										<dt>System Administration</dt>
-										<dd>Logmatic | May 2015 - Sep 2015</dd>
-									</dl>
-									<p>
-										Was responsible for the Linux/Windows server
-										infrastructure. Troubleshoot and maintain the services like
-										DNS, PostgreSQL, OpenVPN, .Net Payment Gateway, etc.
-										Configured the monitoring for the whole infrastructure
-										using Zabbix. Implemented, installed, and configured the
-										network of the payment terminals. Closely worked with the
-										developers to solve the issues during the implementation
-										process of a project.
-									</p>
-									<dl>
-										<dt>System Administration</dt>
-										<dd>Overtech | Feb 2013 - May 2015</dd>
-									</dl>
-									<p>
-										Responsible for the Linux server infrastructure that was
-										related to the two projects. Troubleshoot and maintain the
-										services like DNS, MySQL, Nginx, Postfix, etc. Configured the
-										monitoring for the whole infrastructure using Nagios.
-										Closely worked with the developers to solve the issues
-										during the implementation process of both projects
-									</p>
 								</div>
 							</div>
 						</div>
@@ -210,11 +77,6 @@ templ Index(cert []models.Certifications, edu []models.Education, exp []models.E
 							<div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 								<div class="accordion-body">
 									@education.EduBody(edu)
-									<dl>
-										<dt>Kyiv College of Communications</dt>
-										<dd>Bachelor's degree, Computer Engineering</dd>
-										<dd>2010-2014</dd>
-									</dl>
 								</div>
 							</div>
 						</div>

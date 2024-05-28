@@ -60,6 +60,7 @@ templ Education(edu []models.Education) {
 						<th scope="col">Field</th>
 						<th scope="col">From</th>
 						<th scope="col">To</th>
+						<th scope="col">Action</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -71,6 +72,7 @@ templ Education(edu []models.Education) {
 							<td>{ item.Field }</td>
 							<td>{ item.From.Format("2006-01-02") }</td>
 							<td>{ item.To.Format("2006-01-02") }</td>
+							<td><button class="btn btn-danger" hx-delete={ fmt.Sprintf("/admin/edu/%d", item.ID) } hx-swap="outerHTML" hx-target="#edu">Delete</button></td>
 						</tr>
 					}
 				</tbody>
