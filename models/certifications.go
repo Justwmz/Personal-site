@@ -12,6 +12,7 @@ type Certifications struct {
 	Provider     string
 	CredentialID string
 	Link         string
+	ImgPath      string
 	Issued       time.Time
 	Expired      time.Time
 }

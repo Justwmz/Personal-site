@@ -1,0 +1,15 @@
+package education
+
+import (
+	"github.com/Justwmz/personal-site/models"
+)
+
+templ EduBody(edu []models.Education) {
+	for _, item := range edu {
+		<dl>
+			<dt>{ item.UniversityName }</dt>
+			<dd>{ item.Degree } degree, { item.Field }</dd>
+			<dd>{ item.From.Format("2006-01-02") }-{ item.To.Format("2006-01-02") }</dd>
+		</dl>
+	}
+}

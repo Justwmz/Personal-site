@@ -1,0 +1,15 @@
+package expirience
+
+import "github.com/Justwmz/personal-site/models"
+
+templ ExpBody(workExp []models.Experience) {
+	for _, item := range workExp {
+		<dl>
+			<dt>{ item.Position }</dt>
+			<dd>{ item.Company } | { item.From.Format("2006-01-02") } - { item.To.Format("2006-01-02") }</dd>
+		</dl>
+		<p>
+			{ item.Summary }
+		</p>
+	}
+}

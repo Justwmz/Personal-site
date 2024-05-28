@@ -1,6 +1,13 @@
 package components
 
-templ Index() {
+import (
+	"github.com/Justwmz/personal-site/components/certification"
+	"github.com/Justwmz/personal-site/models"
+	"github.com/Justwmz/personal-site/components/education"
+	"github.com/Justwmz/personal-site/components/expirience"
+)
+
+templ Index(cert []models.Certifications, edu []models.Education, exp []models.Experience) {
 	@Layout() {
 		<div class="container">
 			<div class="row mt-4">
@@ -45,21 +52,7 @@ templ Index() {
 							</h2>
 							<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 								<div class="accordion-body">
-									<div class="row">
-										<div class="col-sm-2">
-											<img src="./static/img/az.jfif" class="img-thumbnail" alt="..."/>
-										</div>
-										<div class="col">
-											<dl>
-												<dt>Azure Administrator Associate (AZ-104)</dt>
-												<dd>Microsoft</dd>
-												<dd>Issued Oct 2022 - Expires Oct 2024</dd>
-												<dd>Credential ID: I434-8424</dd>
-												<dd><a class="btn btn-primary" href="https://www.credly.com/badges/b78ae574-67c9-4553-aa96-f5553abbd113/linked_in_profile" target="_blank" rel="noopener noreferrer">Show credential</a></dd>
-											</dl>
-										</div>
-									</div>
-									<hr/>
+									@certification.CertBody(cert)
 									<div class="row">
 										<div class="col-sm-2">
 											<img src="./static/img/prg_hub.jfif" class="img-thumbnail" alt="..."/>
@@ -112,6 +105,7 @@ templ Index() {
 							</h2>
 							<div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 								<div class="accordion-body">
+									@expirience.ExpBody(exp)
 									<dl>
 										<dt>DevOps Engineer</dt>
 										<dd>Luxoft | Nov 2021 - Present</dd>
@@ -215,6 +209,7 @@ templ Index() {
 							</h2>
 							<div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
 								<div class="accordion-body">
+									@education.EduBody(edu)
 									<dl>
 										<dt>Kyiv College of Communications</dt>
 										<dd>Bachelor's degree, Computer Engineering</dd>

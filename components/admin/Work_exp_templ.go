@@ -40,7 +40,7 @@ func WorkExperience(workExp []models.Experience) templ.Component {
 			var templ_7745c5c3_Var2 string
 			templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("%d", item.ID))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/admin/Work_exp.templ`, Line: 68, Col: 50}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/admin/work_exp.templ`, Line: 68, Col: 50}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 			if templ_7745c5c3_Err != nil {
@@ -53,7 +53,7 @@ func WorkExperience(workExp []models.Experience) templ.Component {
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(item.Position)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/admin/Work_exp.templ`, Line: 69, Col: 26}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/admin/work_exp.templ`, Line: 69, Col: 26}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
@@ -66,7 +66,7 @@ func WorkExperience(workExp []models.Experience) templ.Component {
 			var templ_7745c5c3_Var4 string
 			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(item.Company)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/admin/Work_exp.templ`, Line: 70, Col: 25}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/admin/work_exp.templ`, Line: 70, Col: 25}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
@@ -79,7 +79,7 @@ func WorkExperience(workExp []models.Experience) templ.Component {
 			var templ_7745c5c3_Var5 string
 			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(item.Summary)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/admin/Work_exp.templ`, Line: 71, Col: 25}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/admin/work_exp.templ`, Line: 71, Col: 25}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
@@ -92,7 +92,7 @@ func WorkExperience(workExp []models.Experience) templ.Component {
 			var templ_7745c5c3_Var6 string
 			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(item.From.Format("2006-01-02"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/admin/Work_exp.templ`, Line: 72, Col: 43}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/admin/work_exp.templ`, Line: 72, Col: 43}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
@@ -105,7 +105,7 @@ func WorkExperience(workExp []models.Experience) templ.Component {
 			var templ_7745c5c3_Var7 string
 			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(item.To.Format("2006-01-02"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/admin/Work_exp.templ`, Line: 73, Col: 41}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/admin/work_exp.templ`, Line: 73, Col: 41}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {

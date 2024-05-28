@@ -4,20 +4,22 @@ import (
 	"net/http"
 
 	"github.com/Justwmz/personal-site/components"
+	"github.com/Justwmz/personal-site/database"
+	"github.com/Justwmz/personal-site/models"
 )
 
 func IndexPage(w http.ResponseWriter, r *http.Request) {
-	// var (
-	// 	certifications []models.Certifications
-	// 	experience     []models.Experience
-	// 	education      []models.Education
-	// )
+	var (
+		certifications []models.Certifications
+		experience     []models.Experience
+		education      []models.Education
+	)
 
-	// certResult := database.DB.Find(&certifications)
+	database.DB.Find(&certifications)
 
-	// expResult := database.DB.Find(&experience)
+	database.DB.Find(&experience)
 
-	// eduResult := database.DB.Find(&education)
+	database.DB.Find(&education)
 
-	Render(w, r, components.Index())
+	Render(w, r, components.Index(certifications, education, experience))
 }

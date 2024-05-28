@@ -28,7 +28,7 @@ func Education(edu []models.Education) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"row mt-4 mb-4\" id=\"edu\"><div class=\"col-2\"><!-- Button trigger modal --><button type=\"button\" class=\"btn btn-primary\" data-bs-toggle=\"modal\" data-bs-target=\"#exampleModal\">Add Education</button><!-- Modal --><div class=\"modal fade\" id=\"exampleModal\" tabindex=\"-1\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\"><div class=\"modal-dialog modal-dialog-centered\"><div class=\"modal-content\"><div class=\"modal-header\"><h1 class=\"modal-title fs-5\" id=\"exampleModalLabel\">Add Education</h1><button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button></div><div class=\"modal-body\"><form method=\"POST\" hx-post=\"/admin/edu\" hx-swap=\"outerHTML\" hx-target=\"#edu\"><div class=\"mb-3\"><label for=\"universityNameInput\" class=\"form-label\">University Name</label> <input type=\"text\" class=\"form-control\" id=\"universityNameInput\" name=\"universityName\"></div><div class=\"mb-3\"><label for=\"degreeInput\" class=\"form-label\">Degree</label> <input type=\"text\" class=\"form-control\" id=\"degreeInput\" name=\"degree\"></div><div class=\"mb-3\"><label for=\"fieldInput\" class=\"form-label\">Field</label> <input type=\"text\" class=\"form-control\" id=\"fieldInput\" name=\"field\"></div><div class=\"mb-3\"><label for=\"fromInput\" class=\"form-label\">From</label> <input type=\"text\" class=\"form-control\" id=\"fromInput\" name=\"from\"></div><div class=\"mb-3\"><label for=\"toInput\" class=\"form-label\">To</label> <input type=\"text\" class=\"form-control\" id=\"toInput\" name=\"to\"></div><button type=\"submit\" class=\"btn btn-primary\" data-bs-dismiss=\"modal\">Save changes</button></form></div></div></div></div></div><div class=\"col\"><table class=\"table caption-top\"><caption>Education</caption> <thead><tr><th scope=\"col\">#</th><th scope=\"col\">University Name</th><th scope=\"col\">Degree</th><th scope=\"col\">Field</th><th scope=\"col\">From</th><th scope=\"col\">To</th></tr></thead> <tbody>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"row mt-4 mb-4\" id=\"edu\"><div class=\"col-2\"><!-- Button trigger modal --><button type=\"button\" class=\"btn btn-primary\" data-bs-toggle=\"modal\" data-bs-target=\"#educationModal\">Add Education</button><!-- Modal --><div class=\"modal fade\" id=\"educationModal\" tabindex=\"-1\" aria-labelledby=\"educationModalLabel\" aria-hidden=\"true\"><div class=\"modal-dialog modal-dialog-centered\"><div class=\"modal-content\"><div class=\"modal-header\"><h1 class=\"modal-title fs-5\" id=\"educationModalLabel\">Add Education</h1><button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button></div><div class=\"modal-body\"><form method=\"POST\" hx-post=\"/admin/edu\" hx-swap=\"outerHTML\" hx-target=\"#edu\"><div class=\"mb-3\"><label for=\"universityNameInput\" class=\"form-label\">University Name</label> <input type=\"text\" class=\"form-control\" id=\"universityNameInput\" name=\"universityName\"></div><div class=\"mb-3\"><label for=\"degreeInput\" class=\"form-label\">Degree</label> <input type=\"text\" class=\"form-control\" id=\"degreeInput\" name=\"degree\"></div><div class=\"mb-3\"><label for=\"fieldInput\" class=\"form-label\">Field</label> <input type=\"text\" class=\"form-control\" id=\"fieldInput\" name=\"field\"></div><div class=\"mb-3\"><label for=\"fromInput\" class=\"form-label\">From</label> <input type=\"text\" class=\"form-control\" id=\"fromInput\" name=\"from\"></div><div class=\"mb-3\"><label for=\"toInput\" class=\"form-label\">To</label> <input type=\"text\" class=\"form-control\" id=\"toInput\" name=\"to\"></div><button type=\"submit\" class=\"btn btn-primary\" data-bs-dismiss=\"modal\">Save changes</button></form></div></div></div></div></div><div class=\"col\"><table class=\"table caption-top\"><caption>Education</caption> <thead><tr><th scope=\"col\">#</th><th scope=\"col\">University Name</th><th scope=\"col\">Degree</th><th scope=\"col\">Field</th><th scope=\"col\">From</th><th scope=\"col\">To</th></tr></thead> <tbody>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -40,7 +40,7 @@ func Education(edu []models.Education) templ.Component {
 			var templ_7745c5c3_Var2 string
 			templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("%d", item.ID))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/admin/Education.templ`, Line: 68, Col: 50}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/admin/education.templ`, Line: 68, Col: 50}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 			if templ_7745c5c3_Err != nil {
@@ -53,7 +53,7 @@ func Education(edu []models.Education) templ.Component {
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(item.UniversityName)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/admin/Education.templ`, Line: 69, Col: 32}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/admin/education.templ`, Line: 69, Col: 32}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
@@ -66,7 +66,7 @@ func Education(edu []models.Education) templ.Component {
 			var templ_7745c5c3_Var4 string
 			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(item.Degree)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/admin/Education.templ`, Line: 70, Col: 24}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/admin/education.templ`, Line: 70, Col: 24}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
@@ -79,7 +79,7 @@ func Education(edu []models.Education) templ.Component {
 			var templ_7745c5c3_Var5 string
 			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(item.Field)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/admin/Education.templ`, Line: 71, Col: 23}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/admin/education.templ`, Line: 71, Col: 23}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
@@ -92,7 +92,7 @@ func Education(edu []models.Education) templ.Component {
 			var templ_7745c5c3_Var6 string
 			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(item.From.Format("2006-01-02"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/admin/Education.templ`, Line: 72, Col: 43}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/admin/education.templ`, Line: 72, Col: 43}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
@@ -105,7 +105,7 @@ func Education(edu []models.Education) templ.Component {
 			var templ_7745c5c3_Var7 string
 			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(item.To.Format("2006-01-02"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/admin/Education.templ`, Line: 73, Col: 41}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/admin/education.templ`, Line: 73, Col: 41}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
