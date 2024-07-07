@@ -1,0 +1,9 @@
+package profile
+
+import "github.com/Justwmz/personal-site/models"
+
+templ PersonalInfoView(personalInfo models.PersonalInfo) {
+	<h1>{ personalInfo.FirstName } { personalInfo.LastName } </h1>
+	<p><i class="bi bi-globe"></i> { personalInfo.Country }, { personalInfo.City } | <i class="bi bi-envelope-paper"></i> <a href="mailto:s.alimpiev@hotmail.com">{ personalInfo.Email }</a></p>
+	<p>{ personalInfo.Summary }</p>
+}

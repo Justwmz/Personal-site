@@ -1,11 +1,13 @@
 package admin
 
 import (
-	"github.com/Justwmz/personal-site/models"
 	"fmt"
+	"github.com/Justwmz/personal-site/components/ui/alert"
+	"github.com/Justwmz/personal-site/models"
 )
 
-templ WorkExperience(workExp []models.Experience) {
+templ WorkExperience(workExp []models.Experience, alertData Alert) {
+	@alert.Alert(alertData.Message)
 	<div class="row mt-4" id="exp">
 		<div class="col-2">
 			<!-- Button trigger modal -->
@@ -65,18 +67,61 @@ templ WorkExperience(workExp []models.Experience) {
 				</thead>
 				<tbody>
 					for _, item := range workExp {
-						<tr id={ fmt.Sprintf("exp-%d", item.ID) }>
-							<th scope="row">{ fmt.Sprintf("%d",item.ID) }</th>
-							<td>{ item.Position }</td>
-							<td>{ item.Company }</td>
-							<td>{ item.Summary }</td>
-							<td>{ item.From.Format("2006-01-02") }</td>
-							<td>{ item.To.Format("2006-01-02") }</td>
-							<td><button class="btn btn-danger" hx-delete={ fmt.Sprintf("/admin/exp/%d", item.ID) } hx-target={ fmt.Sprintf("#exp-%d", item.ID) }>Delete</button></td>
-						</tr>
+						@ListItemWork(item)
 					}
 				</tbody>
 			</table>
 		</div>
 	</div>
+}
+
+templ EditFormWork(item models.Experience) {
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h1 class="modal-title fs-5" id="experienceModalLabel">Edit Work Expirience</h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form method="PUT" hx-put={ fmt.Sprintf("/admin/exp/%d", item.ID) } hx-target={ fmt.Sprintf("#exp-%d", item.ID) } hx-swap="outerHTML">
+					<div class="mb-3">
+						<label for="positionInput" class="form-label">Position</label>
+						<input type="text" class="form-control" id="positionInput" name="position" value={ item.Position }/>
+					</div>
+					<div class="mb-3">
+						<label for="companyInput" class="form-label">Company</label>
+						<input type="text" class="form-control" id="companyInput" name="company" value={ item.Company }/>
+					</div>
+					<div class="mb-3">
+						<label for="summaryInput" class="form-label">Summary</label>
+						<input type="text" class="form-control" id="summaryInput" name="summary" value={ item.Summary }/>
+					</div>
+					<div class="mb-3">
+						<label for="fromInput" class="form-label">From</label>
+						<input type="text" class="form-control" id="fromInput" name="from" value={ item.From.Format("2006-01-02") }/>
+					</div>
+					<div class="mb-3">
+						<label for="toInput" class="form-label">To</label>
+						<input type="text" class="form-control" id="toInput" name="to" value={ item.To.Format("2006-01-02") }/>
+					</div>
+					<button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+				</form>
+			</div>
+		</div>
+	</div>
+}
+
+templ ListItemWork(item models.Experience) {
+	<tr id={ fmt.Sprintf("exp-%d", item.ID) }>
+		<th scope="row">{ fmt.Sprintf("%d",item.ID) }</th>
+		<td>{ item.Position }</td>
+		<td>{ item.Company }</td>
+		<td>{ item.Summary }</td>
+		<td>{ item.From.Format("2006-01-02") }</td>
+		<td>{ item.To.Format("2006-01-02") }</td>
+		<td>
+			<button class="btn btn-danger btn-sm" hx-delete={ fmt.Sprintf("/admin/exp/%d", item.ID) } hx-target={ fmt.Sprintf("#exp-%d", item.ID) }>Delete</button>
+			<button class="btn btn-info btn-sm" hx-get={ fmt.Sprintf("/admin/exp/%d/edit", item.ID) } data-bs-toggle="modal" data-bs-target="#modals-here" hx-target="#modals-here" hx-trigger="click">Edit</button>
+		</td>
+	</tr>
 }

@@ -1,0 +1,13 @@
+package alert
+
+templ Alert(message string) {
+	if message != "" {
+		<div class="row mt-4 justify-content-center" x-data="{ show : true }" x-init="setTimeout(() => show = false, 5000)" x-show="show">
+			<div class="col-6">
+				<div class="alert alert-success" role="alert">
+					{ message }
+				</div>
+			</div>
+		</div>
+	}
+}

@@ -16,7 +16,7 @@ templ CertBody(cert []models.Certifications) {
 					<dd>{ item.Provider }</dd>
 					<dd>Issued { item.Issued.Format("2006-01-02") } - Expires { item.Expired.Format("2006-01-02") }</dd>
 					<dd>Credential ID: { item.CredentialID }</dd>
-					<dd><a class="btn btn-primary" href={ templ.URL(item.Link) } target="_blank" rel="noopener noreferrer">Show credential</a></dd>
+					<dd><a class="btn btn-primary" href={ templ.URL(item.Link) } target="_blank" rel="noopener noreferrer" onclick="handleClick()">Show credential</a></dd>
 				</dl>
 			</div>
 		</div>

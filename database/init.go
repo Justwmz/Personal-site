@@ -26,6 +26,7 @@ func InitDatabase() {
 		&models.Certifications{},
 		&models.Education{},
 		&models.User{},
+		&models.PersonalInfo{},
 	)
 	if err != nil {
 		log.Fatalf("failed to migrate models %s", err)

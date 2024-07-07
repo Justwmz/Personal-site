@@ -6,6 +6,7 @@ import (
 	"github.com/Justwmz/personal-site/components"
 	"github.com/Justwmz/personal-site/database"
 	"github.com/Justwmz/personal-site/models"
+	"github.com/Justwmz/personal-site/utils"
 )
 
 func IndexPage(w http.ResponseWriter, r *http.Request) {
@@ -13,6 +14,7 @@ func IndexPage(w http.ResponseWriter, r *http.Request) {
 		certifications []models.Certifications
 		experience     []models.Experience
 		education      []models.Education
+		personalInfo   models.PersonalInfo
 	)
 
 	database.DB.Find(&certifications)
@@ -21,5 +23,7 @@ func IndexPage(w http.ResponseWriter, r *http.Request) {
 
 	database.DB.Find(&education)
 
-	Render(w, r, components.Index(certifications, education, experience))
+	database.DB.Last(&personalInfo)
+
+	utils.Render(w, r, components.Index(certifications, education, experience, personalInfo))
 }

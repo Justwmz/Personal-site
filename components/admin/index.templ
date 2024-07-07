@@ -1,14 +1,41 @@
 package admin
 
-import "github.com/Justwmz/personal-site/components"
-import "github.com/Justwmz/personal-site/models"
+import (
+	"github.com/Justwmz/personal-site/components"
+	"github.com/Justwmz/personal-site/models"
+)
 
-templ AdminIndex(cert []models.Certifications, workExp []models.Experience, edu []models.Education) {
+type AdminData struct {
+	CertData     []models.Certifications
+	WorkExpData  []models.Experience
+	EduData      []models.Education
+	PersonalInfo models.PersonalInfo
+	Alert        Alert
+}
+
+type Alert struct {
+	Message string
+}
+
+templ AdminIndex(adminData AdminData) {
 	@components.Layout() {
 		<div class="container">
-			@Certification(cert)
-			@WorkExperience(workExp)
-			@Education(edu)
+			@PersonalInfo(adminData.PersonalInfo, adminData.Alert)
+			<hr/>
+			@Certification(adminData.CertData, adminData.Alert)
+			@WorkExperience(adminData.WorkExpData, adminData.Alert)
+			@Education(adminData.EduData, adminData.Alert)
+			<div
+				id="modals-here"
+				class="modal modal-blur fade"
+				style="display: none"
+				aria-hidden="false"
+				tabindex="-1"
+			>
+				<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+					<div class="modal-content"></div>
+				</div>
+			</div>
 		</div>
 	}
 }

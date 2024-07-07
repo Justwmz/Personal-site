@@ -1,0 +1,145 @@
+package admin
+
+import (
+	"github.com/Justwmz/personal-site/components/ui/alert"
+	"github.com/Justwmz/personal-site/models"
+	"github.com/Justwmz/personal-site/utils"
+)
+
+templ PersonalInfo(info models.PersonalInfo, alertData Alert) {
+	@alert.Alert(alertData.Message)
+	<div class="row mt-4" id="perfonalInfo">
+		<div class="col-6">
+			<form hx-put="/admin/personalInfo">
+				<h5>Personal Info</h5>
+				<div class="mb-3 row">
+					<label for="staticEmail" class="col-sm-2 col-form-label">Country</label>
+					<div class="col-sm-10">
+						<select name="country" id="country" class="form-select">
+							<option selected value={ info.Country }>{ info.Country }</option>
+							for _, value := range *utils.Test {
+								<option value={ value.Name.Common }>{ value.Name.Common }</option>
+							}
+						</select>
+					</div>
+				</div>
+				<div class="mb-3 row">
+					<label for="city" class="col-sm-2 col-form-label">City</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="city" name="city" value={ info.City }/>
+					</div>
+				</div>
+				<div class="mb-3 row">
+					<label for="firstName" class="col-sm-2 col-form-label">First Name</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="firstName" name="firstName" value={ info.FirstName }/>
+					</div>
+				</div>
+				<div class="mb-3 row">
+					<label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="lastName" name="lastName" value={ info.LastName }/>
+					</div>
+				</div>
+				<div class="mb-3 row">
+					<label for="email" class="col-sm-2 col-form-label">Email</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="email" name="email" value={ info.Email }/>
+					</div>
+				</div>
+				<div class="mb-3 row">
+					<label for="summary" class="col-sm-2 col-form-label">Summary</label>
+					<div class="col-sm-10">
+						<textarea type="text" class="form-control" id="summary" name="summary" value={ info.Summary }>{ info.Summary }</textarea>
+					</div>
+				</div>
+				<div class="mb-3 row">
+					<label for="formFile" class="col-sm-2 col-form-label">Photo</label>
+					<div class="col-10">
+						<input class="form-control" type="file" id="formFile"/>
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary">Save</button>
+			</form>
+		</div>
+		<div class="col-6">
+			<h5>Photo</h5>
+			<p>Test</p>
+		</div>
+	</div>
+	// <div class="row mt-4" id="perfonalInfo" x-data="{ open: false }" x-show="!open">
+	// 	<div class="col-6">
+	// 		<h5>Personal Info</h5>
+	// 		<div class="mb-3 row">
+	// 			<label for="staticEmail" class="col-sm-2 col-form-label">Country</label>
+	// 			<div class="col-sm-10">
+	// 				<input type="text" readonly class="form-control-plaintext" id="staticEmail" value={ info.Country }/>
+	// 			</div>
+	// 		</div>
+	// 		<div class="mb-3 row">
+	// 			<label for="inputPassword" class="col-sm-2 col-form-label">City</label>
+	// 			<div class="col-sm-10">
+	// 				<input type="text" readonly class="form-control-plaintext" id="inputPassword" value={ info.City }/>
+	// 			</div>
+	// 		</div>
+	// 		<div class="mb-3 row">
+	// 			<label for="inputPassword" class="col-sm-2 col-form-label">First Name</label>
+	// 			<div class="col-sm-10">
+	// 				<input type="text" readonly class="form-control-plaintext" id="inputPassword" value={ info.FirstName }/>
+	// 			</div>
+	// 		</div>
+	// 		<div class="mb-3 row">
+	// 			<label for="inputPassword" class="col-sm-2 col-form-label">Last Name</label>
+	// 			<div class="col-sm-10">
+	// 				<input type="text" readonly class="form-control-plaintext" id="inputPassword" value={ info.LastName }/>
+	// 			</div>
+	// 		</div>
+	// 		<div class="mb-3 row">
+	// 			<label for="inputPassword" class="col-sm-2 col-form-label">Summary</label>
+	// 			<div class="col-sm-10">
+	// 				<textarea type="text" readonly class="form-control-plaintext" id="inputPassword" value={ info.Summary }></textarea>
+	// 			</div>
+	// 		</div>
+	// 		<button type="button" @click="open = true" class="btn btn-primary">Update</button>
+	// 	</div>
+	// </div>
+}
+
+templ PersonalInfoForm() {
+	<div class="row mt-4" id="perfonalInfo" x-show="open">
+		<div class="col-6">
+			<h5>Personal Info</h5>
+			<div class="mb-3 row">
+				<label for="staticEmail" class="col-sm-2 col-form-label">Country</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="staticEmail"/>
+				</div>
+			</div>
+			<div class="mb-3 row">
+				<label for="inputPassword" class="col-sm-2 col-form-label">City</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="inputPassword"/>
+				</div>
+			</div>
+			<div class="mb-3 row">
+				<label for="inputPassword" class="col-sm-2 col-form-label">First Name</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="inputPassword"/>
+				</div>
+			</div>
+			<div class="mb-3 row">
+				<label for="inputPassword" class="col-sm-2 col-form-label">Last Name</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="inputPassword"/>
+				</div>
+			</div>
+			<div class="mb-3 row">
+				<label for="inputPassword" class="col-sm-2 col-form-label">Summary</label>
+				<div class="col-sm-10">
+					<textarea type="text" class="form-control" id="inputPassword"></textarea>
+				</div>
+			</div>
+			<button type="button" class="btn btn-primary">Save</button>
+		</div>
+	</div>
+}

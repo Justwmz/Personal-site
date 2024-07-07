@@ -2,12 +2,13 @@ package components
 
 import (
 	"github.com/Justwmz/personal-site/components/certification"
-	"github.com/Justwmz/personal-site/models"
 	"github.com/Justwmz/personal-site/components/education"
 	"github.com/Justwmz/personal-site/components/expirience"
+	"github.com/Justwmz/personal-site/components/profile"
+	"github.com/Justwmz/personal-site/models"
 )
 
-templ Index(cert []models.Certifications, edu []models.Education, exp []models.Experience) {
+templ Index(cert []models.Certifications, edu []models.Education, exp []models.Experience, personalInfo models.PersonalInfo) {
 	@Layout() {
 		<div class="container">
 			<div class="row mt-4">
@@ -15,9 +16,7 @@ templ Index(cert []models.Certifications, edu []models.Education, exp []models.E
 			</div>
 			<div class="row mt-4 mb-4">
 				<div class="col">
-					<h1>Serhii Alimpiiev</h1>
-					<p><i class="bi bi-globe"></i> Unites States of America, Jersey City | <i class="bi bi-envelope-paper"></i> <a href="mailto:s.alimpiev@hotmail.com">s.alimpiev@hotmail.com</a></p>
-					<p>DevOps Engineer/Technical Support Engineer/System Administrator with +10 years of experience in facilitating collaboration between the development and operations teams, with the goal of delivering software more quickly and reliably. Was responsible for designing, implementing, and maintaining the infrastructure, tools, and processes needed to support continuous integration, delivery, and deployment, minimizing customer downtime through prompt evaluation, and troubleshooting. Skilled in resolving network software errors, finding required information, and setting issues for developers.</p>
+					@profile.PersonalInfoView(personalInfo)
 					<hr/>
 					<div class="accordion" id="accordionExample">
 						<div class="accordion-item">

@@ -7,10 +7,11 @@ import (
 	"github.com/Justwmz/personal-site/components/admin"
 	"github.com/Justwmz/personal-site/database"
 	"github.com/Justwmz/personal-site/models"
+	"github.com/Justwmz/personal-site/utils"
 )
 
 func LoginAdminPage(w http.ResponseWriter, r *http.Request) {
-	Render(w, r, admin.AdminLogin(""))
+	utils.Render(w, r, admin.AdminLogin(""))
 }
 
 func LoginUser(w http.ResponseWriter, r *http.Request) {
